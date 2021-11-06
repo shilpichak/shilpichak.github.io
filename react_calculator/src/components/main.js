@@ -293,7 +293,16 @@ keyPress(event) {
         if (decimalHit <= 1){
 			this.decimal();
 		}
-	}	
+	}
+	
+	if(event.key=="Escape"){
+		decimalHit = 0
+        this.setState({
+          formula: "",
+          display: "0"
+        });
+	}
+	
     //let myKey = event.key.toUpperCase();
     //console.log(myKey.charCodeAt(0))
 }
@@ -310,6 +319,7 @@ keyPress(event) {
 
       <div id = "container">
 		<h2 class="text-center" style={{color:"white",background:"linear-gradient(90deg,#0047ff,#ff4040)"}}>Keyboard Support Added</h2>
+		<h2 class="text-center" style={{color:"linear-gradient(90deg,#0047ff,#ff4040)",background:"white"}}>=/Enter => "=" &nbsp;&nbsp;&nbsp;&nbsp; Esc => "AC"</h2>
         <div id = "calculator">
           <div id = "formula-screen">
             {this.state.formula}
