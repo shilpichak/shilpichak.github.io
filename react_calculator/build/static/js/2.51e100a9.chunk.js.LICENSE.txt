@@ -4,26 +4,29 @@ object-assign
 @license MIT
 */
 
-/**
- * React Router DOM v6.0.1
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */
+/*!
+   * Sizzle CSS Selector Engine v2.3.6
+   * https://sizzlejs.com/
+   *
+   * Copyright JS Foundation and other contributors
+   * Released under the MIT license
+   * https://js.foundation/
+   *
+   * Date: 2021-02-16
+   */
 
-/**
- * React Router v6.0.1
+/*!
+ * jQuery JavaScript Library v3.6.0
+ * https://jquery.com/
  *
- * Copyright (c) Remix Software Inc.
+ * Includes Sizzle.js
+ * https://sizzlejs.com/
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
+ * Copyright OpenJS Foundation and other contributors
+ * Released under the MIT license
+ * https://jquery.org/license
  *
- * @license MIT
+ * Date: 2021-03-02T17:08Z
  */
 
 /** @license React v0.20.2
