@@ -1,0 +1,2 @@
+(this.webpackJsonpreact_calculator=this.webpackJsonpreact_calculator||[]).push([[4],{45:function(c,t,a){"use strict";a.r(t);a(1);var e=a(0);t.default=function(){return Object(e.jsx)("main",{children:"Home"})}}}]);
+//# sourceMappingURL=4.29cf50a7.chunk.js.map
