@@ -18,6 +18,8 @@ class Main extends React.Component  {
     }
     //this.handleClick = this.handleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
+	
+	this.keyPress = this.keyPress.bind(this);
   }
 
 
@@ -25,6 +27,8 @@ class Main extends React.Component  {
 
 
 componentDidMount(){
+	
+    window.addEventListener("keydown",this.keyPress)
 
   const roundAccurately = (number, decimalPlaces) =>
     Number(Math.round(number + "e" + decimalPlaces) + "e-" + decimalPlaces)
@@ -261,8 +265,38 @@ componentDidMount(){
 //LOTSA CODE FOR CLICK HANDLER BECAUSE OF SWITCH STATEMENT, THANK YOU FOR YOUR PATIENCE
 
 
-
-
+keyPress(event) {
+	console.log(event.key);
+	if(event.key>="0" && event.key<="9"){
+		this.number(event.key);
+	}
+	
+	if(event.key=="+"){
+		this.operator("+");
+	}
+	if(event.key=="-"){
+		this.subtract();
+	}
+	if(event.key=="*"){
+		this.operator("*");
+	}
+	if(event.key=="/"){
+		this.operator("/");
+	}
+	
+	if(event.key=="=" || event.key=="Enter"){
+		this.answer();
+	}
+	
+	if(event.key=="."){
+		decimalHit += 1
+        if (decimalHit <= 1){
+			this.decimal();
+		}
+	}	
+    //let myKey = event.key.toUpperCase();
+    //console.log(myKey.charCodeAt(0))
+}
 
 
 
@@ -275,6 +309,7 @@ componentDidMount(){
     <div >
 
       <div id = "container">
+		<h2 class="text-center" style={{color:"white",background:"linear-gradient(90deg,#0047ff,#ff4040)"}}>Keyboard Support Added</h2>
         <div id = "calculator">
           <div id = "formula-screen">
             {this.state.formula}
