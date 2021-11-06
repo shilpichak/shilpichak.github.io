@@ -384,7 +384,7 @@ keyPress(event) {
         <div id = "spacer">
         </div>
         <div id = "github">
-          <a id= "github-link" href = "https://github.com/KonoPowa" target = "_blank">
+          <a id= "github-link" href = "https://github.com/ShilpiChak" target = "_blank">
             <img src = {github} alt = "Github"/>
           </a>
         </div>
