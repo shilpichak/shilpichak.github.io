@@ -615,12 +615,12 @@ keyPress(event) {
 				<div id="blue-3" class="cells dark-blue pawn" style={{visibility:"hidden"}}>3</div>
 				<div id="blue-4" class="cells dark-blue pawn" style={{visibility:"hidden"}}>4</div>
 				
-				<div class="cells2" style={{top: "33.33%", left:"-43.33%"}}>
+				<div class="cells2" style={{top: "58.33%", left:"110%"}}>
 					<button id="dice_btn" onClick={this.dice_btn_click}>ROLL DICE</button>
 					<div class="line-break"/>
 					<div id="dice_value" class="circle-number" ></div>
 				</div>
-				<div class="cells2" style={{top: "33.33%", left:"110%"}}>
+				<div class="cells2" style={{top: "8.33%", left:"110%"}}>
 					Player: 
 					<select id="color_selector" onChange={this.color_selector_change}>
 						<option value="red" class="dark-red">RED</option>

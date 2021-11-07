@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react_ludo/build/static/css/main.dead2e94.chunk.css",
-    "main.js": "/react_ludo/build/static/js/main.564a0263.chunk.js",
-    "main.js.map": "/react_ludo/build/static/js/main.564a0263.chunk.js.map",
+    "main.js": "/react_ludo/build/static/js/main.29c0538b.chunk.js",
+    "main.js.map": "/react_ludo/build/static/js/main.29c0538b.chunk.js.map",
     "runtime-main.js": "/react_ludo/build/static/js/runtime-main.ac08bea9.js",
     "runtime-main.js.map": "/react_ludo/build/static/js/runtime-main.ac08bea9.js.map",
     "static/css/2.383c0125.chunk.css": "/react_ludo/build/static/css/2.383c0125.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.383c0125.chunk.css",
     "static/js/2.b2da441a.chunk.js",
     "static/css/main.dead2e94.chunk.css",
-    "static/js/main.564a0263.chunk.js"
+    "static/js/main.29c0538b.chunk.js"
   ]
 }
