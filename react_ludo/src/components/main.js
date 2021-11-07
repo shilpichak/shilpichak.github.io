@@ -361,9 +361,8 @@ keyPress(event) {
 
       <div id = "container">
 		<h2 class="text-center" style={{color:"white",background:"linear-gradient(90deg,#0047ff,#ff4040)"}}>REACT LUDO</h2>
-		<h2 class="text-center" style={{color:"linear-gradient(90deg,#0047ff,#ff4040)",background:"white"}}>Shilpi Chak</h2>
-        <div id = "ludo" style={{height: "500px", width: "500px", background: "#fff", 
-		margin: "auto", padding: "6px" }}>
+		{/*<h2 class="text-center" style={{color:"linear-gradient(90deg,#0047ff,#ff4040)",background:"white"}}>Shilpi Chak</h2>*/}
+        <div id = "ludo" class="ludo-box" style={{background: "#fff", margin: "auto", padding: "6px" }}>
 			<div class="game">
 				<div class="house green">
 					<div class="box">
