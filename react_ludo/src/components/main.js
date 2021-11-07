@@ -2,6 +2,11 @@ import React from 'react';
 import $ from 'jquery';
 import github from "./github.png"
 
+// 3 Six
+// Same place
+// Cutting
+// Pairing
+// Keeping Moves in Hand when there is a 6
 
 //equalsHit tracks equal button
 var equalsHit = 0
@@ -20,12 +25,18 @@ class Main extends React.Component  {
 		"green":[-1,-1,-1,-1],
 		"yellow":[-1,-1,-1,-1],
 		"blue":[-1,-1,-1,-1],
-	  }
+	  },
+	  turn:"red",
+	  pawn_no:1,
     }
     //this.handleClick = this.handleClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
 	
 	this.keyPress = this.keyPress.bind(this);
+	
+	this.color_selector_change = this.color_selector_change.bind(this);
+	this.pawn_selector_change = this.pawn_selector_change.bind(this);
+	
   }
 
 
@@ -270,6 +281,30 @@ componentDidMount(){
   }
 //LOTSA CODE FOR CLICK HANDLER BECAUSE OF SWITCH STATEMENT, THANK YOU FOR YOUR PATIENCE
 
+color_selector_change(event){
+	
+	//console.log(event.target.value);
+	console.log(this.state.turn);
+	$("#turn_color").removeClass("dark-"+this.state.turn);
+	let turn=event.target.value;
+	this.setState({
+		turn:turn,
+	});
+	console.log(turn);
+	$("#turn_color").addClass("dark-"+turn);
+}
+
+pawn_selector_change(event){
+	
+	//console.log(event.target.value);
+	console.log(this.state.pawn_no);
+	let pawn_no=event.target.value;
+	this.setState({
+		pawn_no:pawn_no,
+	});
+	console.log(pawn_no);
+	$("#pawn_no").html(pawn_no);
+}
 
 
 
@@ -277,28 +312,54 @@ keyPress(event) {
 	
 	//console.log(event.key);
 	if(event.key>="1" && event.key<="6"){
-		this.number(event.key);
+		
+		//this.number(event.key);
 		//var color="red";
 		//var color="green";
 		//var color="yellow";
-		var color="blue";
+		//var color="blue";
+		var color=this.state.turn;
+		let colors=["red","green","yellow","blue"];
+		var colour_no=colors.indexOf(color);
 		
-		var pawn_no=2;//1-4
+		//var pawn_no=2;//1-4
+		var pawn_no=this.state.pawn_no;
 		var index=pawn_no-1;
 		var num=event.key.charCodeAt(0)-48;
 		//console.log(this.state.pawns);
 		let pawns = this.state.pawns;
 		
 		if(pawns[color][index]==-1 && num!=6){
+			$("#color_selector").val(colors[(colour_no+1)%4]);
+			let event = new Event('change', { bubbles: true });
+			$("#color_selector")[0].dispatchEvent(event);
+			//$("#color_selector").trigger("change");
+			/*this.setState({
+				turn:colors[(colour_no+1)%4],
+			});*/
 			return;
 		}
 		else if(pawns[color][index]==-1 && num==6){
 			pawns[color][index]=0;
 		}
 		else if(pawns[color][index]+num>56){
+			$("#color_selector").val(colors[(colour_no+1)%4]);
+			let event = new Event('change', { bubbles: true });
+			$("#color_selector")[0].dispatchEvent(event);
+			/*this.setState({
+				turn:colors[(colour_no+1)%4],
+			});*/
 			return;
 		}
 		else{
+			if(num!=6){
+				/*this.setState({
+					turn:colors[(colour_no+1)%4],
+				});*/
+				$("#color_selector").val(colors[(colour_no+1)%4]);
+				let event = new Event('change', { bubbles: true });
+				$("#color_selector")[0].dispatchEvent(event);
+			}
 			pawns[color][index]=pawns[color][index]+num;
 		}
 		//console.log(pawns[color][index]);
@@ -354,6 +415,7 @@ keyPress(event) {
 
 
   render(){
+	  //console.log("re");
   return (
 
 
@@ -537,8 +599,30 @@ keyPress(event) {
 				<div id="blue-2" class="cells dark-blue pawn" style={{visibility:"hidden"}}>2</div>
 				<div id="blue-3" class="cells dark-blue pawn" style={{visibility:"hidden"}}>3</div>
 				<div id="blue-4" class="cells dark-blue pawn" style={{visibility:"hidden"}}>4</div>
-
+				
+				<div class="cells2" style={{top: "33.33%", left:"-43.33%"}}>aaa</div>
+				<div class="cells2" style={{top: "33.33%", left:"110%"}}>
+					Player: 
+					<select id="color_selector" onChange={this.color_selector_change}>
+						<option value="red" class="dark-red">RED</option>
+						<option value="green" class="dark-green">GREEN</option>
+						<option value="yellow" class="dark-yellow">YELLOW</option>
+						<option value="blue" class="dark-blue">BLUE</option>
+					</select>
+					<div id="turn_color" class="dark-red" >&nbsp;&nbsp;&nbsp;&nbsp;</div>
+					<div class="line-break"/>
+					Pawn: 
+					<select id="pawn_selector" onChange={this.pawn_selector_change}>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+					</select>
+					<div id="pawn_no" class="circle-number" >1</div>
+				</div>
+				
 			</div>
+			
         </div>
         <div id = "spacer">
         </div>

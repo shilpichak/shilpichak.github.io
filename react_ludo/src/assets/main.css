@@ -29,8 +29,8 @@
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.ludo-box{
-		height:780px;
-		width:780px;
+		height:580px;
+		width:580px;
 	}
 }
 /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -143,6 +143,33 @@
     height: 6.66%;
     border-collapse: collapse;
     border: 1px solid #e5e5e569 ;
+}
+
+.cells2 {
+    position: absolute;
+    width: 33.33% ;
+    height: 33.33%;
+    border-collapse: collapse;
+    border: 1px solid #e5e5e569 ;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap;
+}
+
+.line-break {
+	width: 100%;
+}
+
+.circle-number {
+	height:40px;
+	width:40px;
+	font-weight:bold;
+	color:purple;
+	text-align:center;
+	border-radius:50%; 
+	border:solid purple 2px;
+	padding:5px;
 }
 
 .safe {
