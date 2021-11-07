@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react_ludo/build/static/css/main.77b69317.chunk.css",
+    "main.js": "/react_ludo/build/static/js/main.e9333bb6.chunk.js",
+    "main.js.map": "/react_ludo/build/static/js/main.e9333bb6.chunk.js.map",
+    "runtime-main.js": "/react_ludo/build/static/js/runtime-main.ac08bea9.js",
+    "runtime-main.js.map": "/react_ludo/build/static/js/runtime-main.ac08bea9.js.map",
+    "static/css/2.383c0125.chunk.css": "/react_ludo/build/static/css/2.383c0125.chunk.css",
+    "static/js/2.38da1f76.chunk.js": "/react_ludo/build/static/js/2.38da1f76.chunk.js",
+    "static/js/2.38da1f76.chunk.js.map": "/react_ludo/build/static/js/2.38da1f76.chunk.js.map",
+    "static/js/3.f62c1534.chunk.js": "/react_ludo/build/static/js/3.f62c1534.chunk.js",
+    "static/js/3.f62c1534.chunk.js.map": "/react_ludo/build/static/js/3.f62c1534.chunk.js.map",
+    "index.html": "/react_ludo/build/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/react_ludo/build/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.77b69317.chunk.css.map": "/react_ludo/build/static/css/main.77b69317.chunk.css.map",
+    "static/js/2.38da1f76.chunk.js.LICENSE.txt": "/react_ludo/build/static/js/2.38da1f76.chunk.js.LICENSE.txt",
+    "static/media/github.png": "/react_ludo/build/static/media/github.38ecca95.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ac08bea9.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.38da1f76.chunk.js",
+    "static/css/main.77b69317.chunk.css",
+    "static/js/main.e9333bb6.chunk.js"
+  ]
+}
