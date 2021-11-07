@@ -2,3 +2,5 @@ npm install bootstrap --save
 npm install node-sass --save
 npm install @popperjs/core --save
 npm add react-router-dom@6 history@5
+
+npm install jquery --save
