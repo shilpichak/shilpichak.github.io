@@ -37,6 +37,10 @@ class Main extends React.Component  {
 	this.color_selector_change = this.color_selector_change.bind(this);
 	this.pawn_selector_change = this.pawn_selector_change.bind(this);
 	
+	this.dice_btn_click = this.dice_btn_click.bind(this);
+	
+	this.move = this.move.bind(this);
+	
   }
 
 
@@ -306,71 +310,82 @@ pawn_selector_change(event){
 	$("#pawn_no").html(pawn_no);
 }
 
+dice_btn_click(event){
+	console.log(event);
+	var num=Math.ceil(Math.random() * 6);
+	$("#dice_value").html(num);
+	this.move(num);
+}
+
+move(num){
+	//this.number(event.key);
+	//var color="red";
+	//var color="green";
+	//var color="yellow";
+	//var color="blue";
+	var color=this.state.turn;
+	let colors=["red","green","yellow","blue"];
+	var colour_no=colors.indexOf(color);
+	
+	//var pawn_no=2;//1-4
+	var pawn_no=this.state.pawn_no;
+	var index=pawn_no-1;
+	//var num=event.key.charCodeAt(0)-48;
+	//console.log(this.state.pawns);
+	let pawns = this.state.pawns;
+	
+	if(pawns[color][index]==-1 && num!=6){
+		$("#color_selector").val(colors[(colour_no+1)%4]);
+		let event = new Event('change', { bubbles: true });
+		$("#color_selector")[0].dispatchEvent(event);
+		//$("#color_selector").trigger("change");
+		/*this.setState({
+			turn:colors[(colour_no+1)%4],
+		});*/
+		return;
+	}
+	else if(pawns[color][index]==-1 && num==6){
+		pawns[color][index]=0;
+	}
+	else if(pawns[color][index]+num>56){
+		$("#color_selector").val(colors[(colour_no+1)%4]);
+		let event = new Event('change', { bubbles: true });
+		$("#color_selector")[0].dispatchEvent(event);
+		/*this.setState({
+			turn:colors[(colour_no+1)%4],
+		});*/
+		return;
+	}
+	else{
+		if(num!=6){
+			/*this.setState({
+				turn:colors[(colour_no+1)%4],
+			});*/
+			$("#color_selector").val(colors[(colour_no+1)%4]);
+			let event = new Event('change', { bubbles: true });
+			$("#color_selector")[0].dispatchEvent(event);
+		}
+		pawns[color][index]=pawns[color][index]+num;
+	}
+	//console.log(pawns[color][index]);
+	this.setState({
+		pawns:pawns,
+	});
+	$('[data-'+color+'="'+pawns[color][index]+'"]').css("top")
+	$("#"+color+"-"+pawn_no).css("top",$('[data-'+color+'="'+pawns[color][index]+'"]').css("top"));
+	$("#"+color+"-"+pawn_no).css("left",$('[data-'+color+'="'+pawns[color][index]+'"]').css("left"));
+	$("#"+color+"-"+pawn_no).css("visibility","visible");
+	$("#"+color+"-base-"+pawn_no).css("visibility","hidden");
+}
 
 
 keyPress(event) {
 	
 	//console.log(event.key);
 	if(event.key>="1" && event.key<="6"){
-		
-		//this.number(event.key);
-		//var color="red";
-		//var color="green";
-		//var color="yellow";
-		//var color="blue";
-		var color=this.state.turn;
-		let colors=["red","green","yellow","blue"];
-		var colour_no=colors.indexOf(color);
-		
-		//var pawn_no=2;//1-4
-		var pawn_no=this.state.pawn_no;
-		var index=pawn_no-1;
 		var num=event.key.charCodeAt(0)-48;
-		//console.log(this.state.pawns);
-		let pawns = this.state.pawns;
-		
-		if(pawns[color][index]==-1 && num!=6){
-			$("#color_selector").val(colors[(colour_no+1)%4]);
-			let event = new Event('change', { bubbles: true });
-			$("#color_selector")[0].dispatchEvent(event);
-			//$("#color_selector").trigger("change");
-			/*this.setState({
-				turn:colors[(colour_no+1)%4],
-			});*/
-			return;
-		}
-		else if(pawns[color][index]==-1 && num==6){
-			pawns[color][index]=0;
-		}
-		else if(pawns[color][index]+num>56){
-			$("#color_selector").val(colors[(colour_no+1)%4]);
-			let event = new Event('change', { bubbles: true });
-			$("#color_selector")[0].dispatchEvent(event);
-			/*this.setState({
-				turn:colors[(colour_no+1)%4],
-			});*/
-			return;
-		}
-		else{
-			if(num!=6){
-				/*this.setState({
-					turn:colors[(colour_no+1)%4],
-				});*/
-				$("#color_selector").val(colors[(colour_no+1)%4]);
-				let event = new Event('change', { bubbles: true });
-				$("#color_selector")[0].dispatchEvent(event);
-			}
-			pawns[color][index]=pawns[color][index]+num;
-		}
-		//console.log(pawns[color][index]);
-		this.setState({
-			pawns:pawns,
-		});
-		$('[data-'+color+'="'+pawns[color][index]+'"]').css("top")
-		$("#"+color+"-"+pawn_no).css("top",$('[data-'+color+'="'+pawns[color][index]+'"]').css("top"));
-		$("#"+color+"-"+pawn_no).css("left",$('[data-'+color+'="'+pawns[color][index]+'"]').css("left"));
-		$("#"+color+"-"+pawn_no).css("visibility","visible");
-		$("#"+color+"-base-"+pawn_no).css("visibility","hidden");
+		$("#dice_value").html(num);
+		this.move(num);
 		
 	}
 	
@@ -600,7 +615,11 @@ keyPress(event) {
 				<div id="blue-3" class="cells dark-blue pawn" style={{visibility:"hidden"}}>3</div>
 				<div id="blue-4" class="cells dark-blue pawn" style={{visibility:"hidden"}}>4</div>
 				
-				<div class="cells2" style={{top: "33.33%", left:"-43.33%"}}>aaa</div>
+				<div class="cells2" style={{top: "33.33%", left:"-43.33%"}}>
+					<button id="dice_btn" onClick={this.dice_btn_click}>ROLL DICE</button>
+					<div class="line-break"/>
+					<div id="dice_value" class="circle-number" ></div>
+				</div>
 				<div class="cells2" style={{top: "33.33%", left:"110%"}}>
 					Player: 
 					<select id="color_selector" onChange={this.color_selector_change}>
