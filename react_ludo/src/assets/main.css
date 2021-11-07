@@ -29,6 +29,24 @@
     border: none;
 }
 
+.dark-green {
+    background-color: green;
+}
+.dark-red {
+    background-color: #c41d1d;
+}
+.dark-yellow {
+    background-color: #ff8f00;
+}
+.dark-blue {
+    background-color: blue;
+}
+.pawn {
+    clip-path: circle(40%);
+	text-align:center;
+	cursor:pointer;
+}
+
 .house {
     display: inline-block;
     position: absolute;
