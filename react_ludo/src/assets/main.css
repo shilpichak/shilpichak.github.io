@@ -149,7 +149,7 @@
     position: absolute;
     width: 33.33% ;
     height: 33.33%;
-    border-collapse: collapse;
+	border-collapse: collapse;
     border: 1px solid #e5e5e569 ;
 	display: flex;
 	justify-content: center;
@@ -160,6 +160,38 @@
 .line-break {
 	width: 100%;
 }
+
+#dice_btn {
+	background:linear-gradient(90deg,#060660,#a50e6f);
+	color:white;
+	font-weight:bold;
+	padding:5px;
+	border-radius:15px;
+}
+@media only screen and (max-width: 600px) {
+	.left-box{
+		top: 110%;
+		left:8.33%;
+	}
+
+	.right-box{
+		top: 110%;
+		left:58.33%;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.left-box{
+		top: 33.33%;
+		left:-43.33%;
+	}
+
+	.right-box{
+		top: 33.33%;
+		left:110%;
+	}
+}
+
 
 .circle-number {
 	height:40px;
